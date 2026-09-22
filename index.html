@@ -75,22 +75,22 @@
 			<section class="stats-grid" aria-label="Build summary">
 				<article class="stat-card stat-card--accent">
 					<div class="stat-heading"><span class="stat-label">Total projects</span><span class="stat-symbol">◈</span></div>
-					<strong class="stat-value">03</strong>
-					<p class="stat-note"><span class="trend-up">↗ 1</span> added this month</p>
+					<strong class="stat-value" id="total-projects">0</strong>
+					<p class="stat-note">Public repositories</p>
 				</article>
 				<article class="stat-card">
 					<div class="stat-heading"><span class="stat-label">Successful builds</span><span class="status-icon status-icon--success">✓</span></div>
-					<strong class="stat-value">24</strong>
-					<p class="stat-note"><span class="trend-up">↗ 92%</span> success rate</p>
+					<strong class="stat-value" id="successful-builds">0</strong>
+					<p class="stat-note">Latest workflows passing</p>
 				</article>
 				<article class="stat-card">
 					<div class="stat-heading"><span class="stat-label">Failed builds</span><span class="status-icon status-icon--danger">!</span></div>
-					<strong class="stat-value">02</strong>
-					<p class="stat-note"><span class="trend-down">↘ 3</span> from last month</p>
+					<strong class="stat-value" id="failed-builds">0</strong>
+					<p class="stat-note">Latest workflows needing attention</p>
 				</article>
 				<article class="stat-card stat-card--quiet">
 					<div class="stat-heading"><span class="stat-label">Last sync</span><span class="stat-symbol">◷</span></div>
-					<strong class="stat-value stat-value--time" id="last-sync">Just now</strong>
+					<strong class="stat-value stat-value--time" id="last-sync">Waiting</strong>
 					<p class="stat-note">All systems operational</p>
 				</article>
 			</section>
@@ -100,23 +100,12 @@
 					<div><p class="eyebrow">Your workspace</p><h2 id="projects-title">Project pulse</h2></div>
 					<button class="text-button" type="button">View all projects <span aria-hidden="true">→</span></button>
 				</div>
-				<div class="project-list">
-					<article class="project-card">
-						<div class="project-top"><div class="project-icon project-icon--orange">DO</div><div class="project-title"><h3>devops-observatory</h3><p>github.com/nikhil/devops-observatory</p></div><span class="build-status build-status--success"><span></span> Passing</span></div>
-						<div class="project-meta"><div><span class="meta-label">Last build</span><strong>12 minutes ago</strong></div><div><span class="meta-label">Docker image</span><strong class="mono">v0.8.2</strong></div><div><span class="meta-label">Deployment</span><strong class="deploy-live"><span></span> Live</strong></div><span class="project-arrow" aria-hidden="true">↗</span></div>
-					</article>
-					<article class="project-card">
-						<div class="project-top"><div class="project-icon project-icon--blue">CP</div><div class="project-title"><h3>cloud-pipeline</h3><p>github.com/nikhil/cloud-pipeline</p></div><span class="build-status build-status--success"><span></span> Passing</span></div>
-						<div class="project-meta"><div><span class="meta-label">Last build</span><strong>2 hours ago</strong></div><div><span class="meta-label">Docker image</span><strong class="mono">v1.4.0</strong></div><div><span class="meta-label">Deployment</span><strong class="deploy-live"><span></span> Live</strong></div><span class="project-arrow" aria-hidden="true">↗</span></div>
-					</article>
-					<article class="project-card project-card--attention">
-						<div class="project-top"><div class="project-icon project-icon--purple">KH</div><div class="project-title"><h3>k8s-helm-lab</h3><p>github.com/nikhil/k8s-helm-lab</p></div><span class="build-status build-status--failed"><span></span> Failed</span></div>
-						<div class="project-meta"><div><span class="meta-label">Last build</span><strong>Yesterday, 18:42</strong></div><div><span class="meta-label">Docker image</span><strong class="mono">v2.1.1</strong></div><div><span class="meta-label">Deployment</span><strong class="deploy-paused"><span></span> Paused</strong></div><span class="project-arrow" aria-hidden="true">↗</span></div>
-					</article>
+				<div class="project-list" id="project-list" aria-live="polite">
+					<p class="project-loading">Loading public repositories...</p>
 				</div>
 			</section>
 
-			<footer class="footer"><span><span class="footer-dot"></span> Demo data enabled</span><span>GitHub Actions integration coming next</span></footer>
+			<footer class="footer"><span><span class="footer-dot"></span> Public GitHub data</span><span>GitHub Actions workflow status</span></footer>
 		</main>
 	</div>
 	<div class="toast" id="toast" role="status" aria-live="polite">Dashboard refreshed</div>

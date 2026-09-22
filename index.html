@@ -9,10 +9,28 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
+	<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js" defer></script>
+	<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js" defer></script>
 	<script src="script.js" defer></script>
 </head>
 <body>
-	<div class="app-shell">
+	<section class="auth-screen" id="auth-screen" aria-labelledby="auth-title">
+		<div class="auth-panel">
+			<p class="eyebrow">Private workspace <span class="eyebrow-line"></span> Secure access</p>
+			<h1 id="auth-title">Welcome back<span class="accent">.</span></h1>
+			<p class="subtitle">Sign in to view your deployment observatory.</p>
+			<form class="auth-form" id="auth-form">
+				<label for="auth-email">Email</label>
+				<input id="auth-email" name="email" type="email" autocomplete="email" required>
+				<label for="auth-password">Password</label>
+				<input id="auth-password" name="password" type="password" autocomplete="current-password" required>
+				<button class="refresh-button" id="auth-submit" type="submit">Sign in</button>
+				<p class="auth-message" id="auth-message" role="alert"></p>
+			</form>
+		</div>
+	</section>
+
+	<div class="app-shell" hidden>
 		<header class="topbar">
 			<a class="brand" href="#dashboard" aria-label="Deployment Observatory home">
 				<span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -27,7 +45,7 @@
 				<button class="icon-button" id="theme-toggle" type="button" aria-label="Switch to light theme" title="Toggle theme">
 					<span class="sun-icon" aria-hidden="true">☼</span>
 				</button>
-				<div class="avatar" aria-label="Nikhil's profile">N</div>
+				<button class="avatar" id="sign-out" type="button" aria-label="Sign out">N</button>
 			</div>
 		</header>
 

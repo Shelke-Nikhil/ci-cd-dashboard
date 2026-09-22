@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="A personal dashboard for GitHub Actions and deployment health.">
+	<title>Deployment Observatory</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js" defer></script>
+</head>
+<body>
+	<div class="app-shell">
+		<header class="topbar">
+			<a class="brand" href="#dashboard" aria-label="Deployment Observatory home">
+				<span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+				<span>Deployment<br><strong>Observatory</strong></span>
+			</a>
+			<nav class="main-nav" aria-label="Primary navigation">
+				<a class="nav-link is-active" href="#dashboard">Dashboard</a>
+				<a class="nav-link" href="#projects">Projects <span class="nav-count">03</span></a>
+			</nav>
+			<div class="topbar-actions">
+				<span class="environment"><span class="pulse-dot"></span> Local preview</span>
+				<button class="icon-button" id="theme-toggle" type="button" aria-label="Switch to light theme" title="Toggle theme">
+					<span class="sun-icon" aria-hidden="true">☼</span>
+				</button>
+				<div class="avatar" aria-label="Nikhil's profile">N</div>
+			</div>
+		</header>
+
+		<main id="dashboard" class="content">
+			<section class="welcome-row" aria-labelledby="page-title">
+				<div>
+					<p class="eyebrow">Tuesday, September 22, 2026 <span class="eyebrow-line"></span> Workspace overview</p>
+					<h1 id="page-title">Good morning, Nikhil<span class="accent">.</span></h1>
+					<p class="subtitle">A calm view of what is shipping, what is waiting, and what needs your attention.</p>
+				</div>
+				<button class="refresh-button" id="refresh-button" type="button">
+					<span class="refresh-icon" aria-hidden="true">↻</span> Refresh data
+				</button>
+			</section>
+
+			<section class="stats-grid" aria-label="Build summary">
+				<article class="stat-card stat-card--accent">
+					<div class="stat-heading"><span class="stat-label">Total projects</span><span class="stat-symbol">◈</span></div>
+					<strong class="stat-value">03</strong>
+					<p class="stat-note"><span class="trend-up">↗ 1</span> added this month</p>
+				</article>
+				<article class="stat-card">
+					<div class="stat-heading"><span class="stat-label">Successful builds</span><span class="status-icon status-icon--success">✓</span></div>
+					<strong class="stat-value">24</strong>
+					<p class="stat-note"><span class="trend-up">↗ 92%</span> success rate</p>
+				</article>
+				<article class="stat-card">
+					<div class="stat-heading"><span class="stat-label">Failed builds</span><span class="status-icon status-icon--danger">!</span></div>
+					<strong class="stat-value">02</strong>
+					<p class="stat-note"><span class="trend-down">↘ 3</span> from last month</p>
+				</article>
+				<article class="stat-card stat-card--quiet">
+					<div class="stat-heading"><span class="stat-label">Last sync</span><span class="stat-symbol">◷</span></div>
+					<strong class="stat-value stat-value--time" id="last-sync">Just now</strong>
+					<p class="stat-note">All systems operational</p>
+				</article>
+			</section>
+
+			<section id="projects" class="projects-section" aria-labelledby="projects-title">
+				<div class="section-heading">
+					<div><p class="eyebrow">Your workspace</p><h2 id="projects-title">Project pulse</h2></div>
+					<button class="text-button" type="button">View all projects <span aria-hidden="true">→</span></button>
+				</div>
+				<div class="project-list">
+					<article class="project-card">
+						<div class="project-top"><div class="project-icon project-icon--orange">DO</div><div class="project-title"><h3>devops-observatory</h3><p>github.com/nikhil/devops-observatory</p></div><span class="build-status build-status--success"><span></span> Passing</span></div>
+						<div class="project-meta"><div><span class="meta-label">Last build</span><strong>12 minutes ago</strong></div><div><span class="meta-label">Docker image</span><strong class="mono">v0.8.2</strong></div><div><span class="meta-label">Deployment</span><strong class="deploy-live"><span></span> Live</strong></div><span class="project-arrow" aria-hidden="true">↗</span></div>
+					</article>
+					<article class="project-card">
+						<div class="project-top"><div class="project-icon project-icon--blue">CP</div><div class="project-title"><h3>cloud-pipeline</h3><p>github.com/nikhil/cloud-pipeline</p></div><span class="build-status build-status--success"><span></span> Passing</span></div>
+						<div class="project-meta"><div><span class="meta-label">Last build</span><strong>2 hours ago</strong></div><div><span class="meta-label">Docker image</span><strong class="mono">v1.4.0</strong></div><div><span class="meta-label">Deployment</span><strong class="deploy-live"><span></span> Live</strong></div><span class="project-arrow" aria-hidden="true">↗</span></div>
+					</article>
+					<article class="project-card project-card--attention">
+						<div class="project-top"><div class="project-icon project-icon--purple">KH</div><div class="project-title"><h3>k8s-helm-lab</h3><p>github.com/nikhil/k8s-helm-lab</p></div><span class="build-status build-status--failed"><span></span> Failed</span></div>
+						<div class="project-meta"><div><span class="meta-label">Last build</span><strong>Yesterday, 18:42</strong></div><div><span class="meta-label">Docker image</span><strong class="mono">v2.1.1</strong></div><div><span class="meta-label">Deployment</span><strong class="deploy-paused"><span></span> Paused</strong></div><span class="project-arrow" aria-hidden="true">↗</span></div>
+					</article>
+				</div>
+			</section>
+
+			<footer class="footer"><span><span class="footer-dot"></span> Demo data enabled</span><span>GitHub Actions integration coming next</span></footer>
+		</main>
+	</div>
+	<div class="toast" id="toast" role="status" aria-live="polite">Dashboard refreshed</div>
+</body>
+</html>

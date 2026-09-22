@@ -109,6 +109,31 @@ button {
 	font: inherit;
 }
 
+.password-field {
+	position: relative;
+}
+
+.password-field input {
+	padding-right: 58px;
+}
+
+.password-toggle {
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	transform: translateY(-50%);
+	border: 0;
+	padding: 4px;
+	color: var(--muted);
+	background: transparent;
+	font-size: 10px;
+	font-weight: 700;
+}
+
+.password-toggle:hover {
+	color: var(--accent);
+}
+
 .auth-form input:focus {
 	outline: 2px solid var(--accent);
 	outline-offset: 2px;
@@ -124,6 +149,18 @@ button {
 	margin: 4px 0 0;
 	color: var(--danger);
 	font-size: 12px;
+}
+
+.auth-mode-button {
+	border: 0;
+	padding: 4px;
+	color: var(--muted);
+	background: transparent;
+	font-size: 12px;
+}
+
+.auth-mode-button:hover {
+	color: var(--accent);
 }
 
 .app-shell {

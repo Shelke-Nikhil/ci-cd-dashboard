@@ -18,14 +18,25 @@
 		<div class="auth-panel">
 			<p class="eyebrow">Private workspace <span class="eyebrow-line"></span> Secure access</p>
 			<h1 id="auth-title">Welcome back<span class="accent">.</span></h1>
-			<p class="subtitle">Sign in to view your deployment observatory.</p>
+			<p class="subtitle" id="auth-subtitle">Sign in to view your deployment observatory.</p>
 			<form class="auth-form" id="auth-form">
 				<label for="auth-email">Email</label>
 				<input id="auth-email" name="email" type="email" autocomplete="email" required>
 				<label for="auth-password">Password</label>
-				<input id="auth-password" name="password" type="password" autocomplete="current-password" required>
+				<div class="password-field">
+					<input id="auth-password" name="password" type="password" autocomplete="current-password" required>
+					<button class="password-toggle" type="button" data-password-target="auth-password">Show</button>
+				</div>
+				<div class="confirm-password-field" id="confirm-password-field" hidden>
+					<label for="auth-confirm-password">Confirm password</label>
+					<div class="password-field">
+						<input id="auth-confirm-password" name="confirm-password" type="password" autocomplete="new-password">
+						<button class="password-toggle" type="button" data-password-target="auth-confirm-password">Show</button>
+					</div>
+				</div>
 				<button class="refresh-button" id="auth-submit" type="submit">Sign in</button>
 				<p class="auth-message" id="auth-message" role="alert"></p>
+				<button class="auth-mode-button" id="auth-mode-toggle" type="button">Need an account? Sign up</button>
 			</form>
 		</div>
 	</section>
